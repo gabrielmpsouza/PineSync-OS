@@ -2,7 +2,7 @@
 
 # Definindo as credenciais de login e senha
 login_correto="root"
-senha_correta="admin"
+senha_correta=""
 
 verde='\033[0;32m'
 azul='\033[0;34m'
@@ -14,12 +14,14 @@ pineOS="pineOS"
 history_file="$HOME/.pinesync_history"
 touch "$history_file"
 
-echo -n -e "Bem-vindo ao${cor_amarela} PineSync OS${reset_cor}\n"
-echo "Versão DUMMY 1.1"
-echo "Desenvolvida por @gb.destroy7"
-echo "Digite seus comandos. Para sair, digite 'exit'."
-echo "Para ter uma lista de comandos, digite 'ajuda'"
+comandos_validos=("listar" "data" "versao" "ajuda" "teste" "uso_cpu" "info_sistema" "espaco_disco" "criar_diretorio" "remover_arquivo" "info_memoria" "links2" "historico" "limpar" "sair")
 
+echo -n -e "${reset_cor}Bem-vindo ao${cor_amarela} PineSync OS${reset_cor}\n"
+echo -n -e "${reset_cor}Versão ${cor_amarela}Dummy 1.1\n"
+echo -n -e "${reset_cor}Desenvolvida por ${cor_amarela}@gb.destroy7${reset_cor}\n"
+echo -n -e "${reset_cor}Digite seus comandos. Para sair, digite ${cor_vermelha}'sair'${reset_cor}\n"
+echo -n -e "Para ter uma lista de comandos, digite ${cor_amarela}'ajuda'${cor_vermelha}\n"
+echo -n -e "${verde}----------------------------------------------${reset_cor}\n"
 # Solicitar login
 read -p "Login: " user
 # Solicitar senha
@@ -27,21 +29,23 @@ read -s -p "Senha: " password
 
 # Verificar login e senha
 if [ "$user" != "$login_correto" ] || [ "$password" != "$senha_correta" ]; then
-    echo -e "\nAcesso negado. Saindo..."
+    echo -e -n "\n${cor_vermelha}Acesso negado. Saindo...\n"
     exit 1
 fi
 
-echo -e "\nAcesso concedido. Bem-vindo, \e[31m$user\e[0m!"
+echo -e "\n${verde}Acesso concedido. Bem-vindo, \e[31m$user\e[0m!"
 
 while true; do
-    read -e -p "$(echo -e "${cor_vermelha}$user${reset_cor}@${cor_amarela}$pineOS${reset_cor}$") " command
-    PS1="${cor_vermelha}$user${reset_cor}@${cor_amarela}$pine${reset_cor}"
+    read -e -p "$(echo -e "${cor_vermelha}$user${reset_cor}@${cor_amarela}$pineOS${reset_cor}$ >") " command
+    PS1="${cor_vermelha}$user${reset_cor}@${cor_amarela}$pine${reset_cor} >"
 
-output="System_x86 > "
-    echo -n -e "${verde}$output${reset_cor}"
+    output="${verde}"
+    echo -n -e "${verde}Systemx86_64 > $output${reset_cor}"
 
     # Adiciona o comando ao histórico
     echo "$command" >> "$history_file"
+
+    # Verifica se o comando está na lista de comandos válidos
 
     case $command in
         "sair")
@@ -55,7 +59,7 @@ output="System_x86 > "
             date
             ;;
         "versao")
-            echo -e "PineSync OS Versão 1.0 desenvolvida por GB.\nTodos os direitos reservados.\n13/11/2023"
+            echo -e -n "\n${azul}PineSync OS. \n${reset_cor}Versão ${cor_amarela}Dummy.\n${reset_cor}Sistema desenvolvido por GB.\n${reset_cor}Propriedade da ${azul}PineSync OS S.A.\n${reset_cor}Todos os direitos reservados.\nRecife, 13/11/2023\n"
             ;;
         "--ajuda" | "ajuda")
             echo "Lista de comandos:"
@@ -72,7 +76,7 @@ output="System_x86 > "
             echo "  remover_arquivo- Remove um arquivo"
             echo "  info_memoria   - Exibe informações de memória"
             echo "  links2         - Acessa a web"
-            echo "  histórico      - Exibe os últimos comandos"
+            echo "  historico      - Exibe os últimos comandos"
             echo "  limpar         - Limpa a tela"
             echo "  sair           - Sai do sistema"
             ;;
@@ -131,7 +135,7 @@ output="System_x86 > "
         "links2")
             links2 google.com
             ;;
-        "histórico")
+        "historico")
             echo "Últimos comandos:"
             tail -n 10 "$history_file"  # Mostra os últimos 10 comandos, você pode ajustar conforme necessário.
             ;;
@@ -139,7 +143,7 @@ output="System_x86 > "
             clear
             ;;
         *)
-            echo "Comando não reconhecido. Digite '--ajuda' ou 'ajuda' para obter ajuda."
+            echo -e -n "${cor_vermelha}Comando não reconhecido. ${reset_cor}Digite '${verde}ajuda'${reset_cor} para obter ajuda.\n"
             ;;
     esac
 done
