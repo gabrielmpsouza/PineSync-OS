@@ -1,7 +1,3 @@
-Certamente! Um arquivo `ROADMAP.md` é uma excelente maneira de documentar o planejamento e as etapas do desenvolvimento do seu projeto. Aqui está um exemplo de um possível `ROADMAP.md` para o PineSync OS:
-
----
-
 # PineSync OS - Roadmap
 
 ## Visão Geral
@@ -53,7 +49,3 @@ O PineSync OS é um sistema operacional desenvolvido pela PineSync OS Company pa
 - [ ] Estabelecer um processo de contribuição aberto.
 - [ ] Construir uma comunidade em torno do PineSync OS.
 - [ ] Aceitar e revisar contribuições externas.
-
----
-
-Este é um exemplo geral e pode ser adaptado conforme suas necessidades específicas. Lembre-se de atualizar o roadmap à medida que o projeto evolui e novas decisões são tomadas. Boa sorte com o desenvolvimento do PineSync OS!
