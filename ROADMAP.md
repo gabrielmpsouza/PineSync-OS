@@ -8,7 +8,7 @@ O PineSync OS é um sistema operacional desenvolvido pela PineSync OS Company pa
 
 ### Fase 1: Planejamento e Preparação
 
-- [ ] Definir requisitos do sistema operacional.
+- [x] Definir requisitos do sistema operacional.
 - [ ] Especificar recursos principais e funcionalidades.
 - [ ] Criar a estrutura inicial do sistema de arquivos.
 - [ ] Pesquisar e selecionar tecnologias-chave.
