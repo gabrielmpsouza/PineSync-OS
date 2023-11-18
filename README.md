@@ -37,7 +37,8 @@ A instalação do PineSync OS será simplificada e amigável, proporcionando uma
 ```bash
 $ git clone https://github.com/gabrielmpsouza/PineSync-OS.git
 $ cd PineSync-OS
-$ ./BASIC.1.0.sh
+$ chmod +x BASIC.1.1.sh
+$ ./BASIC.1.1.sh
 ```
 
 ## Comandos Rápidos
@@ -47,7 +48,7 @@ O PineSync OS suportará uma ampla variedade de comandos para oferecer uma exper
 ```bash
 $ versao                # Verifica a versão do PineSync OS
 $ --help/ajuda          # Exibe a ajuda e informações de uso
-$ ./BASIC.1.0.sh        # Inicia o PineSync OS
+$ ./BASIC.1.1.sh        # Inicia o PineSync OS
 $ exit                  # Sai do PineSync OS
 ```
 
